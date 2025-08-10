@@ -1,12 +1,12 @@
 # 🌦️ App Clima
 
-Aplicación web interactiva para consultar el clima actual en ciudades de México. Incluye modo claro/oscuro, tabla comparativa y detalles meteorológicos visuales.
+Aplicación web interactiva para consultar el clima actual en ciudades. Incluye modo claro/oscuro, tabla comparativa y detalles meteorológicos visuales.
 
 ---
 
 ##  Características
 
--  **Búsqueda rápida** de ciudades mexicanas.
+-  **Búsqueda rápida** de ciudadess.
 -  **Tabla comparativa** con clima, temperatura e íconos para varias ciudades.
 -  **Modo claro y oscuro** con cambio instantáneo.
 -  **Detalles meteorológicos**: humedad, presión, viento y sensación térmica.
