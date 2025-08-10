@@ -12,7 +12,7 @@ Aplicación web para consultar el clima actual en ciudades de México, con modo 
 1. **Clona el repositorio:**
 
    ```bash
-   git clone https://github.com/tu-usuario/app-clima.git
+   git clone https://github.com/Arkan2601/App-Clima
    cd app-clima
    ```
 
