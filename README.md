@@ -1,13 +1,27 @@
-# App Clima
+# 🌦️ App Clima
 
-Aplicación web para consultar el clima actual en ciudades de México, con modo claro/oscuro y tabla de comparación.
+Aplicación web interactiva para consultar el clima actual en ciudades de México. Incluye modo claro/oscuro, tabla comparativa y detalles meteorológicos visuales.
 
-## Requisitos
+---
 
-- Node.js >= 16.x
-- npm >= 8.x
+##  Características
 
-## Instalación
+-  **Búsqueda rápida** de ciudades mexicanas.
+-  **Tabla comparativa** con clima, temperatura e íconos para varias ciudades.
+-  **Modo claro y oscuro** con cambio instantáneo.
+-  **Detalles meteorológicos**: humedad, presión, viento y sensación térmica.
+-  **Íconos visuales** del clima en cada ciudad.
+
+---
+
+##  Requisitos
+
+- [Node.js](https://nodejs.org/) >= 18.20.2
+- [npm](https://www.npmjs.com/) >= 10.5.0
+
+---
+
+##  Instalación
 
 1. **Clona el repositorio:**
 
@@ -31,33 +45,37 @@ Aplicación web para consultar el clima actual en ciudades de México, con modo 
      REACT_APP_OPENWEATHER_API_KEY=tu_api_key_aqui
      ```
 
-   - Puedes obtener una API Key gratuita en [OpenWeatherMap](https://openweathermap.org/api).
+   - Obtén tu API Key gratuita en [OpenWeatherMap](https://openweathermap.org/api).
 
-## Ejecución en local
+---
+
+## 🖥️ Ejecución en local
 
 ```bash
 npm start
 ```
 
-La aplicación estará disponible en [http://localhost:3000](http://localhost:3000).
+Accede a la app en: [http://localhost:3000](http://localhost:3000)
 
-## Dependencias principales
+---
 
-- React
-- OpenWeatherMap API
+##  Dependencias principales
 
-## Características
+- [React](https://react.dev/)
+- [OpenWeatherMap API](https://openweathermap.org/api)
 
-- Búsqueda de ciudades mexicanas.
-- Tabla comparativa de clima en otras ciudades.
-- Modo claro y oscuro.
-- Visualización de detalles meteorológicos.
+---
 
-## Personalización
+## 🎨 Personalización
 
-Puedes modificar la lista de ciudades en `src/components/CitiesWeatherTable.jsx`.
+- Modifica la lista de ciudades en  
+  `src/components/CitiesWeatherTable.jsx`.
+- Personaliza estilos en  
+  `src/App.css`.
 
-## Despliegue
+---
+
+## 🚢 Despliegue
 
 Para crear una versión de producción:
 
@@ -69,4 +87,32 @@ Esto generará la carpeta `build` lista para desplegar en cualquier hosting est�
 
 ---
 
-¡Disfruta tu app del clima!
+## 📂 Estructura de archivos
+
+```
+app-clima/
+├── src/
+│   ├── components/
+│   │   ├── SearchBar.jsx
+│   │   ├── WeatherCard.jsx
+│   │   ├── WeatherDetails.jsx
+│   │   └── CitiesWeatherTable.jsx
+│   ├── App.js
+│   ├── App.css
+│   └── index.js
+├── .env
+├── .gitignore
+├── package.json
+└── README.md
+```
+
+---
+
+## 💡 Notas
+
+- El archivo `.env` **no se sube** al repositorio por seguridad.
+- Puedes cambiar entre °C y °F y alternar el tema claro/oscuro desde la interfaz.
+
+---
+
+## ✨ ¡Disfruta tu app del clima!
