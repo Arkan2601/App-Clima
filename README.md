@@ -12,6 +12,8 @@ Aplicación web interactiva para consultar el clima actual en ciudades. Incluye 
 -  **Detalles meteorológicos**: humedad, presión, viento y sensación térmica.
 -  **Íconos visuales** del clima en cada ciudad.
 
+## Vista previa
+![vista previa app-clima](image.png)
 ---
 
 ##  Requisitos

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 
-// Lista de ciudades para mostrar en la tabla
 const ciudadesMexico = [
     "Linares, mx",
     "Hualahuises, mx",
@@ -21,11 +20,10 @@ const ciudadesMexico = [
     "Acapulco"
 ];
 
-const CitiesWeatherTable = ({ unit, apiKey, onCitySelect }) => {
+const CitiesWeatherTable = ({ unit, apiKey, onCitySelect, theme }) => {
     const [citiesWeather, setCitiesWeather] = useState([]);
 
     useEffect(() => {
-        // Función para obtener el clima de todas las ciudades
         const fetchAllCitiesWeather = async () => {
             const promises = ciudadesMexico.map(async (city) => {
                 try {
@@ -39,7 +37,7 @@ const CitiesWeatherTable = ({ unit, apiKey, onCitySelect }) => {
                         weather: data.weather[0].main,
                         temp: Math.round(data.main.temp),
                         icon: data.weather[0].icon,
-                        fullData: data // Guarda toda la data para mostrar detalles
+                        fullData: data
                     };
                 } catch {
                     return {
@@ -56,25 +54,36 @@ const CitiesWeatherTable = ({ unit, apiKey, onCitySelect }) => {
         };
 
         fetchAllCitiesWeather();
-        // eslint-disable-next-line
     }, [unit, apiKey]);
 
-    // Función para obtener el ícono del clima desde openweathermap
     const getWeatherIcon = (iconCode) => {
         if (!iconCode) return null;
         return `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
     };
 
+    // Al seleccionar una ciudad, mueve el scroll a los detalles
+    const handleRowClick = (city) => {
+        if (city.fullData && onCitySelect) {
+            onCitySelect(city.fullData);
+            setTimeout(() => {
+                const details = document.querySelector(".weather-container");
+                if (details) {
+                    details.scrollIntoView({ behavior: "smooth", block: "center" });
+                }
+            }, 100);
+        }
+    };
+
     return (
-        <div className="cities-table-container">
+        <div className={`cities-table-container${theme === "dark" ? " dark" : ""}`}>
             <h3>Clima en otras ciudades</h3>
             <table className="cities-weather-table">
                 <thead>
                     <tr>
-                        <th>Ciudad</th>
-                        <th>Clima</th>
-                        <th>Icono</th>
-                        <th>Temperatura</th>
+                        <th className={theme === "dark" ? "dark" : ""}>Ciudad</th>
+                        <th className={theme === "dark" ? "dark" : ""}>Clima</th>
+                        <th className={theme === "dark" ? "dark" : ""}>Icono</th>
+                        <th className={theme === "dark" ? "dark" : ""}>Temperatura</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -82,11 +91,11 @@ const CitiesWeatherTable = ({ unit, apiKey, onCitySelect }) => {
                         <tr
                             key={city.name}
                             style={{ cursor: city.fullData ? "pointer" : "default" }}
-                            onClick={() => city.fullData && onCitySelect(city.fullData)}
+                            onClick={() => handleRowClick(city)}
                         >
-                            <td>{city.name}</td>
-                            <td>{city.weather}</td>
-                            <td>
+                            <td className={theme === "dark" ? "dark" : ""}>{city.name}</td>
+                            <td className={theme === "dark" ? "dark" : ""}>{city.weather}</td>
+                            <td className={theme === "dark" ? "dark" : ""}>
                                 {city.icon ? (
                                     <img
                                         src={getWeatherIcon(city.icon)}
@@ -97,7 +106,7 @@ const CitiesWeatherTable = ({ unit, apiKey, onCitySelect }) => {
                                     "-"
                                 )}
                             </td>
-                            <td>
+                            <td className={theme === "dark" ? "dark" : ""}>
                                 {city.temp !== "-"
                                     ? `${city.temp}°${unit === "metric" ? "C" : "F"}`
                                     : "-"}

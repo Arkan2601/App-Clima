@@ -72,24 +72,40 @@ function App() {
   // Actualiza los datos si cambia la unidad
   useEffect(() => {
     if (weatherData) fetchWeatherData(weatherData.name);
+    // eslint-disable-next-line
   }, [unit]);
 
   // Al iniciar la app, carga Linares, Mx
   useEffect(() => {
     fetchWeatherData("Linares, Mx");
+    // eslint-disable-next-line
   }, []);
 
   // Renderiza la interfaz
   return (
     <div className={`app${theme === "dark" ? " dark" : ""}`}>
       <h1>Aplicación del Clima</h1>
-      <button onClick={toggleTheme} className="unit-toggle" style={{ marginBottom: 10 }}>
-        Cambiar a tema {theme === "light" ? "oscuro" : "claro"}
-      </button>
+      {/* Botones de tema y grados alineados y separados, al mismo nivel */}
+      <div className="toggle-buttons-container">
+        <button
+          onClick={toggleTheme}
+          className={`theme-toggle${theme === "dark" ? " dark" : ""}`}
+          aria-label="Cambiar tema"
+          title="Cambiar tema"
+        >
+          <span>{theme === "light" ? "🌙" : "☀️"}</span>
+        </button>
+        <button
+          onClick={toggleUnit}
+          className={`unit-toggle${theme === "dark" ? " dark" : ""}`}
+          aria-label="Cambiar unidad"
+          title="Cambiar unidad"
+        >
+          <span>{unit === "metric" ? "°F" : "°C"}</span>
+        </button>
+      </div>
       <SearchBar onSearch={handleSearch} />
-      <button onClick={toggleUnit} className="unit-toggle">
-        Cambiar a {unit === "metric" ? "°F" : "°C"}
-      </button>
+      {/* Botón de grados con ícono */}
       <div className="main-content" style={{ display: "flex", gap: "2rem" }}>
         {/* Sección principal del clima */}
         <div style={{ flex: 2 }}>
